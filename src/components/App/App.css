@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital@0;1&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #F1EFEC;
+}
+
+.App__banner{
+
+  background-image: url('../../laguna.png');
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 900px;
+  
+}
+
+.App__text{
+  padding-top: 211px;
+  padding-left: 160px;
+  padding-right: 160px;
+
+  font-family: Zilla Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 60px;
+line-height: 72px;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.link{
+  display: flex;
+    position: sticky;
+    top: 0;
+    display: flex;
+  justify-content: center;
+}
+
+.App__banner{
+
+}

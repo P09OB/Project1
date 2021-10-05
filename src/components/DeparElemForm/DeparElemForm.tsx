@@ -17,16 +17,24 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ onCreate}) => {
         setName(event.target.value);
     }
 
+    const [url, setUrl] = React.useState('');
+    const handleUrlChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+        setUrl(event.target.value);
+    }
 
+    const [des,setDes] = React.useState('')
+    const handleDesChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+        setDes(event.target.value);
+    }
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> =(event: any) =>{
         event.preventDefault();
         setFormSubmitted(true);
 
         onCreate({
-            img: '',
+            img: url,
             title: name,
-            description: '',
+            description: des,
 
         });
 
@@ -47,11 +55,15 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ onCreate}) => {
         </label>
 
         <label>URL Imagen
-            <input name="Image" type="text"></input>
+            <input name="Image" type="text"
+            onChange={handleUrlChange}
+            value={url}></input>
         </label>
 
         <label>Descripción
-            <input name="Description" type="text"></input>
+            <input name="Description" type="text"
+            onChange={handleDesChange}
+            value={des}></input>
         </label>
 
         <button>

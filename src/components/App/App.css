@@ -11,7 +11,7 @@ body{
 
 .App__banner{
 
-  background-image: url('../../laguna.png');
+  background-image: url('../../img/laguna.png');
     box-sizing: border-box;
     background-size: cover;
     background-repeat: no-repeat;
@@ -24,25 +24,34 @@ body{
   padding-top: 211px;
   padding-left: 160px;
   padding-right: 160px;
-
   font-family: Zilla Slab;
-font-style: normal;
-font-weight: normal;
-font-size: 60px;
-line-height: 72px;
-text-align: center;
-
-color: #FFFFFF;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 72px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
-.link{
+.App__nav{
+  position: sticky;
+  top: 0;
+  padding: 8px 60px 8px 60px;
+  height: 120px;
   display: flex;
-    position: sticky;
-    top: 0;
-    display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #09282F;
+  box-sizing: border-box;
+  }
+
+.App_user{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFE766;
 }
 
-.App__banner{
-
+.App__link{
+  
 }

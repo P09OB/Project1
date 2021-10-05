@@ -8,9 +8,11 @@ interface LinkProps {
 }
 
 export const Link: React.FC<LinkProps> =(props)=>{
-    
-  
-    return <a className="link" href={props.url}>
+  let className = "link";
+  if(props.active){
+    className += " link--active"
+  }
+    return <a className={className} href={props.url}>
       {props.text}
     </a>;
   }

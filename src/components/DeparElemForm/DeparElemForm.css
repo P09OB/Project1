@@ -1,9 +1,31 @@
 .DeparElemForm label{
 
     display: block;
+
 }
 
 .DeparElemForm input{
 
     display: block;
+    margin-top: 8px;
+    margin-bottom: 20px;
+
+    width: 50%;
+    height: 30px;
+
+
+}
+
+.DeparElemForm{
+    padding-top: 100px;
+    padding-left: 58px;
+}
+
+.DeparElemForm h2{
+
+    margin-bottom: 20px;
+}
+
+.DeparElemForm__error{
+    color: red;
 }

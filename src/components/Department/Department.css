@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;1,300;1,400&display=swap');
+
+.container_depart{
+    width: 330px;
+    background-repeat: no-repeat;
+    margin-right: 30px;
+    padding-left: 37px;
+    padding-right: 37px;
+    box-sizing: border-box;
+}
+
+.container_depart--title{
+    padding-top: 99%;
+    color: white;
+    font-family: Jost;
+    font-style: normal;
+    font-weight: 600;
+    box-sizing: border-box;
+
+
+}
+
+.container_depart--des{
+    color: white;
+    font-family: Jost;
+    font-style: italic;
+}

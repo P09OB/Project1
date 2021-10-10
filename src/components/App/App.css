@@ -31,6 +31,8 @@ body{
   line-height: 72px;
   text-align: center;
   color: #FFFFFF;
+  box-sizing: border-box;
+
 }
 
 .App__nav{
@@ -52,6 +54,22 @@ body{
   background: #FFE766;
 }
 
-.App__link{
+.App__depar{
+  display: flex;
+  padding-top: 42px;
+
+}
+
+.App_depar-text{
+
+  color: #09282F;
+  padding-top: 440px;
+  padding-left: 58px;
+  width: 40%;
   
+}
+
+.App_depar-list{
+  display: flex;
+  justify-content: flex-start;
 }

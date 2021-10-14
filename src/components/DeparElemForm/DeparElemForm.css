@@ -1,31 +1,23 @@
-.DeparElemForm label{
-
-    display: block;
-
-}
-
-.DeparElemForm input{
-
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 20px;
-
-    width: 50%;
-    height: 30px;
-
-
-}
-
 .DeparElemForm{
+
+    display: flex;
+    flex-direction: column;
     padding-top: 100px;
     padding-left: 58px;
+    width: 40%;
+
+
 }
+.input{
+    margin-top: 50px;
+
+}
+
 
 .DeparElemForm h2{
 
     margin-bottom: 20px;
+    color: #09282F;
 }
 
-.DeparElemForm__error{
-    color: red;
-}
+

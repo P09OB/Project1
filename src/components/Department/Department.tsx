@@ -5,12 +5,13 @@ export interface DeparElemProps {
   id: number;
   img: string;
   title: string;
+  mapImg:string;
   description: string;
   onDelate:(id:number) => void;
   onEdit: (id:number) => void;
 }
 
-const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, onDelate, onEdit }) => {
+const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapImg, onDelate, onEdit }) => {
 
   const handleDelete:React.MouseEventHandler<HTMLButtonElement>  =() =>{
     onDelate(id);
@@ -26,6 +27,7 @@ const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, onDe
     }} >
       <button onClick={handleDelete}>X</button>
       <button onClick={handleEdit}>Editar</button>
+      <img src={mapImg}></img>
       <h2 className='container_depart--title'>{title}</h2>
       <p className='container_depart--des'>{description}</p>
       <a href="${}" >Conocer más...</a>

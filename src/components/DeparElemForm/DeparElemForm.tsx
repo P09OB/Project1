@@ -9,63 +9,63 @@ import './DeparElemForm.css'
 interface DeparElemFormProps {
     editId: number | null;
     type: 'create' | 'edit';
-    onCreate: (newDeparElem:{img: string, title: string, mapImg:string, description:string})=> void
-    onEdit: (id: number, editDeparElem:{img: string, description:string})=> void
+    onCreate: (newDeparElem: { img: string, title: string, mapImg: string, description: string }) => void
+    onEdit: (id: number, editDeparElem: { img: string, description: string }) => void
 }
 
-const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, onEdit}) => {
+const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, onEdit }) => {
 
     const [formSubmitted, setFormSubmitted] = React.useState(false);
 
     const [name, setName] = React.useState('');
-    const handleNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+    const handleNameChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setName(event.target.value);
     }
 
     const [url, setUrl] = React.useState('');
-    const handleUrlChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+    const handleUrlChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setUrl(event.target.value);
     }
 
-    const [des,setDes] = React.useState('')
-    const handleDesChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+    const [des, setDes] = React.useState('')
+    const handleDesChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setDes(event.target.value);
     }
 
-    const[urlMap, setUrlMap] = React.useState('');
-    const handleUrlMapChange: React.ChangeEventHandler<HTMLInputElement> = (event) =>{
+    const [urlMap, setUrlMap] = React.useState('');
+    const handleUrlMapChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setUrlMap(event.target.value);
     }
 
     const isUrlValid = url.length >= 10;
-    const isTitleValid= name.length >= 2;
-    const isDescriValid= des.length >= 20;
+    const isTitleValid = name.length >= 2;
+    const isDescriValid = des.length >= 20;
 
     //Style
 
     const useStyles = makeStyles({
         root: {
-          
-          margin: '10px 0 0 0',
+
+            margin: '10px 0 0 0',
         },
-      });
+    });
 
 
 
 
-    const handleSubmit: React.FormEventHandler<HTMLFormElement> =(event: any) =>{
+    const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event: any) => {
         event.preventDefault();
         setFormSubmitted(true);
 
 
-        if(type==='create'&&isDescriValid&&isTitleValid&&isUrlValid){
+        if (type === 'create' && isDescriValid && isTitleValid && isUrlValid) {
 
             onCreate({
                 img: url,
                 title: name,
                 mapImg: urlMap,
                 description: des,
-    
+
             });
             setName('');
             setUrl('');
@@ -73,14 +73,14 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
             setUrlMap('');
             setFormSubmitted(false)
 
-        } else if(type==='edit'&&isDescriValid&&isUrlValid){
+        } else if (type === 'edit' && isDescriValid && isUrlValid) {
 
-            onEdit( editId!,{
+            onEdit(editId!, {
                 img: url,
                 description: des,
             });
-            
-        } else{
+
+        } else {
             console.log('invalid')
         }
     }
@@ -88,64 +88,64 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
 
 
     return (<form className="DeparElemForm"
-            onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}>
 
-        <h2> {type === 'create' ? 'Agregar': 'Editar'} Elemento</h2>
-        
+        <h2> {type === 'create' ? 'Agregar' : 'Editar'} Elemento</h2>
+
         {type === 'create' &&
-            <TextField      
-            name="title" 
-            label="Departamento" 
-            variant="outlined" 
-            className="input" 
-            type="text"
-            onChange={handleNameChange}
-            value= {name}
-            error={(!isTitleValid&&formSubmitted)} 
-            helperText={(!isTitleValid&&formSubmitted) ? "El titulo contiene menos de 10 caracteres" : ''} >
+            <TextField
+                name="title"
+                label="Departamento"
+                variant="outlined"
+                className="input"
+                type="text"
+                onChange={handleNameChange}
+                value={name}
+                error={(!isTitleValid && formSubmitted)}
+                helperText={(!isTitleValid && formSubmitted) ? "El titulo contiene menos de 10 caracteres" : ''} >
             </TextField>
-            
-        } 
 
-            <TextField 
-            name="Image" 
+        }
+
+        <TextField
+            name="Image"
             type="text"
-            label="URL Imagen" 
-            variant="outlined" 
+            label="URL Imagen"
+            variant="outlined"
             className={useStyles().root}
             onChange={handleUrlChange}
             value={url}
-            error={(formSubmitted && !isUrlValid)} 
+            error={(formSubmitted && !isUrlValid)}
             helperText={(formSubmitted && !isUrlValid) ? 'La URL contiene menos de 10 caracteres' : ''} >
 
-            </TextField>
-            
-            <TextField 
-            name="Logo" 
+        </TextField>
+
+        <TextField
+            name="Logo"
             type="text"
-            label="URL Croquis" 
+            label="URL Croquis"
             className={useStyles().root}
-            variant="outlined" 
+            variant="outlined"
             onChange={handleUrlMapChange}
             value={urlMap}
-            error={(formSubmitted && !isUrlValid)} 
+            error={(formSubmitted && !isUrlValid)}
             helperText={(formSubmitted && !isUrlValid) ? 'La URL contiene menos de 10 caracteres' : ''}
-            ></TextField>
-            
-                    <TextField 
-            name="Description" 
+        ></TextField>
+
+        <TextField
+            name="Description"
             type="text"
-            label="Descripción" 
+            label="Descripción"
             variant="outlined"
             className={useStyles().root}
             onChange={handleDesChange}
             value={des}
-            error={(!isDescriValid&&formSubmitted)} 
-            helperText={(!isDescriValid&&formSubmitted) ? 'La URL contiene menos de 10 caracteres' : ''}
-            ></TextField>
-           
+            error={(!isDescriValid && formSubmitted)}
+            helperText={(!isDescriValid && formSubmitted) ? 'La URL contiene menos de 10 caracteres' : ''}
+        ></TextField>
+
         <Button type="submit" variant="contained" className={useStyles().root}>
-            {type === 'create' ? 'Agregar nuevo elemento': 'Guardar cambios'}
+            {type === 'create' ? 'Agregar nuevo elemento' : 'Guardar cambios'}
         </Button>
 
 

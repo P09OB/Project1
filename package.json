@@ -2,7 +2,7 @@
   "name": "proyecto-1",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://P09OB.github.io/project1",
+  "homepage": "http://P09OB.github.io/Project1",
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
     "@emotion/react": "^11.4.1",

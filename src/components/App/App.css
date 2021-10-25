@@ -112,9 +112,23 @@ body{
 
 }
 
+.App__depar{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+  box-sizing: border-box;
+
+}
+
 .App__depar--contenedor{
   background-size: cover;
     background-repeat: no-repeat;
     width: 37%;
+    
+
 
 }

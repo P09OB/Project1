@@ -99,6 +99,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
                 variant="outlined"
                 className="input"
                 type="text"
+                color="secondary"
                 onChange={handleNameChange}
                 value={name}
                 error={(!isTitleValid && formSubmitted)}
@@ -112,6 +113,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
             type="text"
             label="URL Imagen"
             variant="outlined"
+            color="secondary"
             className={useStyles().root}
             onChange={handleUrlChange}
             value={url}
@@ -126,6 +128,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
             label="URL Croquis"
             className={useStyles().root}
             variant="outlined"
+            color="secondary"
             onChange={handleUrlMapChange}
             value={urlMap}
             error={(formSubmitted && !isUrlValid)}
@@ -137,6 +140,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
             type="text"
             label="Descripción"
             variant="outlined"
+            color="secondary"
             className={useStyles().root}
             onChange={handleDesChange}
             value={des}
@@ -144,7 +148,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
             helperText={(!isDescriValid && formSubmitted) ? 'La URL contiene menos de 10 caracteres' : ''}
         ></TextField>
 
-        <Button type="submit" variant="contained" className={useStyles().root}>
+        <Button type="submit" variant="contained" color="secondary" className={useStyles().root}>
             {type === 'create' ? 'Agregar nuevo elemento' : 'Guardar cambios'}
         </Button>
 

@@ -1,6 +1,10 @@
-import React from "react";
+import * as React from "react";
 import './Department.css'
 import { Link, useHistory } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 export interface DeparElemProps {
   id: number;
@@ -29,12 +33,12 @@ const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapI
     }
   }
 
-  const handleView: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const handleView: React.MouseEventHandler<HTMLDivElement>  = () => {
     history.push(`/details/${id}`);
   }
 
   return (
-    <div className='container_depart' style={{
+    /*<div className='container_depart' style={{
       backgroundImage: `url("${img}")`
     }} >
       {type === 'edit' && <div>
@@ -46,10 +50,25 @@ const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapI
       <h2 className='container_depart--title'>{title}</h2>
       <p className='container_depart--des'>{description}</p>
       {type === 'edit' && <div>
-      <button onClick={handleView}>Conoce más...</button>
+        <button onClick={handleView}>Conoce más...</button>
       </div>
       }
 
+    </div>*/
+    <div>
+    <div className="depar_contenedor" style={{ backgroundImage: `url("${img}")`}} onClick={handleView} >
+      {type === 'edit' && <div>
+        {onDelate && <IconButton aria-label="delete" color="primary" onClick={handleDelete}>
+        <DeleteIcon />
+      </IconButton>}
+        {onEdit && <IconButton aria-label="delete" color="primary" onClick={handleEdit}>
+        <EditIcon />
+      </IconButton>}
+      </div>
+}
+      <img src={mapImg}></img>
+      <h2 className="depar_contenedor--text">{title}</h2>
+    </div>
     </div>
   )
 }

@@ -16,12 +16,35 @@
     font-style: normal;
     font-weight: 600;
     box-sizing: border-box;
-
-
 }
 
 .container_depart--des{
     color: white;
     font-family: Jost;
     font-style: italic;
+}
+
+.depar_contenedor{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 617px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    box-sizing: border-box;
+    border-radius: 3px;
+
+}
+
+.depar_contenedor--text{
+
+    color: white;
+    margin-top: 20px;
+    font-family: Jost;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
 }

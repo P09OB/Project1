@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React from 'react';
 import DeparElemForm from '../DeparElemForm/DeparElemForm';
 import DeparElem, { DeparElemProps } from '../Department/Department';
@@ -7,13 +6,15 @@ import logo from '../../img/logo.svg'
 import croquis from '../../img/croquis.svg'
 import './App.css';
 import { HashRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom'
-import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import { green } from '@mui/material/colors';
 import DeparElemDetails from '../DeparElemDetails/DeparElemDetails';
 import Page404 from '../Page404/Page404';
 import { DeparElemObj } from '../types/DeparElemObj';
 import { MuniciElemObjt } from '../types/MuniciElemObj';
+import MuniciElemDetails from '../MuniciElemDetails/MuniciElemDetails';
+import Carousel from 'react-elastic-carousel'
+const bool = true;
 
 
 function App() {
@@ -24,10 +25,34 @@ function App() {
   const [deparElem, setDeparElem] = React.useState<DeparElemObj[]>([
     {
       id:0,
-      img: 'https://alponiente.com/wp-content/uploads/2018/06/valle_del_cauca-990x556.jpg',
+      img: 'https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png',
       title: 'Valle Del Cauca',
       description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
-      mapImg: '',
+      mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
+      munici: [],
+    },
+    {
+      id:1,
+      img: 'https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png',
+      title: 'Valle Del Cauca',
+      description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
+      mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
+      munici: [],
+    },
+    {
+      id:2,
+      img: 'https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png',
+      title: 'Valle Del Cauca',
+      description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
+      mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
+      munici: [],
+    },
+    {
+      id:3,
+      img: 'https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png',
+      title: 'Valle Del Cauca',
+      description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
+      mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
       munici: [],
     }
 
@@ -112,9 +137,12 @@ function App() {
 
     setDeparElem(deparElemCopy);
   }
+ 
+
 
   return (
     <HashRouter>
+      
 
       <div className="App">
         <div className="App__nav">
@@ -141,21 +169,30 @@ function App() {
                 <p>Conoce los mejores lugares de cada municipio de nuestro país.</p>
               </div>
               <div className="App_depar-list">
-                {deparElem.map((elem) => {
-                  return <DeparElem
+                
+              </div>
+            </section>
+
+        
+            <section >
+            <Carousel isRTL={bool} itemsToShow={1}>
+
+              {deparElem.map((elem) => {
+                  return  <DeparElem
                     id={elem.id}
                     img={elem.img}
                     title={elem.title}
                     description={elem.description}
                     mapImg={elem.mapImg}
-                    type = 'edit'
+                    type = 'detail'
                     onDelate={handleDelate}
                     onEdit={handleBeginEdit}
                   >
                   </DeparElem>
                 })}
-              </div>
-            </section>
+                      </Carousel>
+
+              </section>
           </Route>
 
           <Route path='/form'>
@@ -177,11 +214,21 @@ function App() {
                 <img src={croquis}></img>
               </div>
 
-              <section>
-                <div className="App__depar--contenedor" style={{ backgroundImage: `url("https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png")` }} >
-                  <img src="https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png"></img>
-                  <h3>Valle del cauca</h3>
-                </div>
+              <section className="App__depar">
+              {deparElem.map((elem) => {
+                  return <DeparElem
+                    id={elem.id}
+                    img={elem.img}
+                    title={elem.title}
+                    description={elem.description}
+                    mapImg={elem.mapImg}
+                    type = 'edit'
+                    onDelate={handleDelate}
+                    onEdit={handleBeginEdit}
+                  >
+                  </DeparElem>
+                })}
+                
               </section>
 
 
@@ -195,6 +242,10 @@ function App() {
             list={deparElem} 
             onCreateMunicipi = {handleCreateMunici}
             />
+          </Route>
+
+          <Route path="/municipio/:id">
+            <MuniciElemDetails list={[]}  />
           </Route>
 
           <Route path="/404">

@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    margin-top: 89px;
+}
+
+.container--details{
+
+    width: 50%;
+
+}
+
+.container--details--text{
+    padding: 120px;
+    padding-top: 590px;
+    box-sizing: border-box;
+    color: #09282F;
+    font-family: Sansation;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 29px;
+
+}
+
+.container--title{
+    color:#09282F ;
+    margin: 0px;
+    text-align: center;
+}

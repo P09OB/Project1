@@ -14,7 +14,10 @@ import { DeparElemObj } from '../types/DeparElemObj';
 import { MuniciElemObjt } from '../types/MuniciElemObj';
 import MuniciElemDetails from '../MuniciElemDetails/MuniciElemDetails';
 import Carousel from 'react-elastic-carousel'
-const bool = true;
+import { ElementFlags } from 'typescript';
+import { PlaceElemObj } from '../types/PlaceElemObj';
+import PlaceElemDetails from '../PlaceElem/PlaceElemDetails';
+const bool = false;
 
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
   const [editId, setEditId] = React.useState<number | null>(null);
 
   const [deparElem, setDeparElem] = React.useState<DeparElemObj[]>([
+
     {
       id:0,
       img: 'https://lh3.googleusercontent.com/-DpRrUDs3yvY/YWe1gOhJV_I/AAAAAAAAH0g/G7XSIg0BTzkE3P8M1aA08WnsrXDLmq_TwCLcBGAsYHQ/ValleDelCauca.png',
@@ -30,6 +34,8 @@ function App() {
       description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
       mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
       munici: [],
+      place: [],
+
     },
     {
       id:1,
@@ -38,6 +44,8 @@ function App() {
       description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
       mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
       munici: [],
+      place: [],
+
     },
     {
       id:2,
@@ -46,6 +54,8 @@ function App() {
       description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
       mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
       munici: [],
+      place: [],
+
     },
     {
       id:3,
@@ -54,9 +64,12 @@ function App() {
       description: 'Valle del Cauca es un departamento del suroeste de Colombia. Tiene playas a lo largo de su costa en el océano Pacífico, mientras que en el interior está la cordillera de los Andes.',
       mapImg: 'https://1.bp.blogspot.com/-ou0sfTKMsgc/YWcdNxNDAZI/AAAAAAAAH0Y/G2acAc-NpNANxw0i7AT-D3II2Ber2vwBwCLcBGAsYHQ/s320/ValleDelCauca.png',
       munici: [],
-    }
+      place: [],
 
+    }
+    
   ]);
+
 
   const handleCreate = (newDeparElem: { img: string, title: string, description: string, mapImg: string }) => {
 
@@ -69,6 +82,7 @@ function App() {
       description: newDeparElem.description,
       mapImg: newDeparElem.mapImg,
       munici: [],
+      place: [],
     });
 
     setDeparElem(arrayCopy);
@@ -126,6 +140,9 @@ function App() {
 
     });
 
+    console.log(deparElemId)
+
+
     deparElemCopy[editIndex] = {
       ...deparElem[editIndex],
       munici: [
@@ -137,13 +154,61 @@ function App() {
 
     setDeparElem(deparElemCopy);
   }
- 
+
+  const handleCreatePlace = (deparElemId: number, newPlaceElem: PlaceElemObj) =>{
+    const deparElemCopy = deparElem.slice();
+    const editIndex = deparElem.findIndex((elem) => {
+      if (elem.id === deparElemId) {
+        return true
+      } else {
+        return false
+      }
+
+    });
+
+    console.log(deparElemId)
+
+    deparElemCopy[editIndex] = {
+      ...deparElem[editIndex],
+      place: [
+        ...deparElem[editIndex].place,
+      newPlaceElem
+      ]
+
+    }
+
+    console.log(deparElemCopy);
+
+    setDeparElem(deparElemCopy);
+
+  }
+
+
+let municiArray: MuniciElemObjt[] = [];
+let placeArray: PlaceElemObj[] = [];
+
+
+deparElem.forEach((element) => {
+element.munici.forEach((municiElem) => {
+  municiArray.push(municiElem)
+  
+});
+});
+
+deparElem.forEach((element) => {
+  element.place.forEach((placeElem) => {
+    placeArray.push(placeElem)
+    
+  });
+
+});
+
+
 
 
   return (
-    <HashRouter>
-      
 
+    <HashRouter>
       <div className="App">
         <div className="App__nav">
           <NavLink to={'/home'}><img src={logo} ></img></NavLink>
@@ -163,36 +228,26 @@ function App() {
                 un impacto positivo</p>
             </section>
 
-            <section className="App__depar">
-              <div className="App_depar-text">
-                <h2>Municipios</h2>
-                <p>Conoce los mejores lugares de cada municipio de nuestro país.</p>
-              </div>
-              <div className="App_depar-list">
-                
-              </div>
-            </section>
-
-        
             <section >
-            <Carousel isRTL={bool} itemsToShow={1}>
+              <Carousel isRTL={bool} itemsToShow={1}>
 
-              {deparElem.map((elem) => {
-                  return  <DeparElem
+                {deparElem.map((elem) => {
+                  return <DeparElem
                     id={elem.id}
                     img={elem.img}
                     title={elem.title}
                     description={elem.description}
                     mapImg={elem.mapImg}
-                    type = 'detail'
+                    type='detail'
+                    format='slide'
                     onDelate={handleDelate}
                     onEdit={handleBeginEdit}
                   >
                   </DeparElem>
                 })}
-                      </Carousel>
+              </Carousel>
 
-              </section>
+            </section>
           </Route>
 
           <Route path='/form'>
@@ -215,38 +270,44 @@ function App() {
               </div>
 
               <section className="App__depar">
-              {deparElem.map((elem) => {
+                {deparElem.map((elem) => {
                   return <DeparElem
                     id={elem.id}
                     img={elem.img}
                     title={elem.title}
                     description={elem.description}
                     mapImg={elem.mapImg}
-                    type = 'edit'
+                    type='edit'
+                    format='card'
                     onDelate={handleDelate}
                     onEdit={handleBeginEdit}
                   >
                   </DeparElem>
                 })}
-                
               </section>
-
-
             </section>
-
-
           </Route>
 
           <Route path="/details/:id">
             <DeparElemDetails
-            list={deparElem} 
-            onCreateMunicipi = {handleCreateMunici}
+              list={deparElem}
+              onCreateMunicipi={handleCreateMunici}
             />
           </Route>
 
           <Route path="/municipio/:id">
-            <MuniciElemDetails list={[]}  />
+            <MuniciElemDetails
+              listPlace={placeArray}
+              list={municiArray} 
+              onCreatePlace={handleCreatePlace}
+            />
+
           </Route>
+
+          <Route path="/place/:id">
+            <PlaceElemDetails listPlace={placeArray}            
+            />
+            </Route>
 
           <Route path="/404">
             <Page404 />

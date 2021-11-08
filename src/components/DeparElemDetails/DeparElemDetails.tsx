@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Redirect, useParams } from "react-router";
-import { idText } from "typescript";
 import DeparElem from "../Department/Department";
 import MuniciElem from "../MuniciElem/MuniciElem";
 import { DeparElemObj } from "../types/DeparElemObj";
 import { MuniciElemObjt } from "../types/MuniciElemObj";
 import DeparElemDetailsMuniciForm from "./DeparElemDetailsMuniciForm";
-import DeparElemDetailsMunciForm from "./DeparElemDetailsMuniciForm";
+import Carousel from 'react-elastic-carousel'
+import "./DeparElemDetails.css"
 
 interface DeparElemDetailsProps {
     list: DeparElemObj[];
@@ -16,6 +16,8 @@ interface DeparElemDetailsProps {
 const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunicipi }) => {
     const { id: idString } = useParams<{ id: string }>();
     const id = parseFloat(idString);
+    const bool = false;
+
 
     const elem = list.find((elem) => {
         return elem.id === id;
@@ -28,7 +30,8 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
         onCreateMunicipi(id, newMuniciElem);
     }
 
-    return (<div>
+
+    return (<>
 
         <DeparElem
             id={id}
@@ -37,28 +40,48 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
             mapImg={mapImg}
             description={description}
             type='detail'
+            format='slide'
         />
+
+        <div className='container'>
+            <div className='container--details'>
+            <p className='container--details--text'>{description}</p>
+            </div>
+
+            <h1>{munici.length}</h1>
+
+            <Carousel isRTL={bool} itemsToShow={2}>
+
+            {munici.map(municielem => {
+
+                return <MuniciElem
+
+                    id={municielem.id}
+                    idDepar={id}
+                    title={municielem.title}
+                    weather={municielem.weather}
+                    description={municielem.description}
+                    img={municielem.img}
+
+                />
+
+            })}
+
+        
+            </Carousel>
+
+        </div>
+
+        <h2 className='container--title' >Agregar Municipio</h2>
 
 
         <DeparElemDetailsMuniciForm
             onCreate={handleCreateMuniciElemObj}
         />
-        {munici.map(municielem => {
-
-            return <MuniciElem
-
-                id={municielem.id}
-                title={municielem.title}
-                weather={municielem.weather}
-                description={municielem.description}
-
-            />
-
-        })}
 
 
 
-    </div>
+    </>
     );
 
 }

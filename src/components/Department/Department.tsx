@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import { handleBreakpoints } from "@mui/system";
 
 
 export interface DeparElemProps {
@@ -12,14 +13,16 @@ export interface DeparElemProps {
   title: string;
   mapImg: string;
   type: 'detail' | 'edit';
+  format: 'slide' | 'card';
   description: string;
   onDelate?: (id: number) => void;
   onEdit?: (id: number) => void;
 }
 
-const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapImg, onDelate, onEdit, type }) => {
+const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapImg, onDelate, onEdit, type, format}) => {
 
   const history = useHistory();
+  let className;
 
   const handleDelete: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (onDelate) {
@@ -37,26 +40,15 @@ const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapI
     history.push(`/details/${id}`);
   }
 
-  return (
-    /*<div className='container_depart' style={{
-      backgroundImage: `url("${img}")`
-    }} >
-      {type === 'edit' && <div>
-        {onDelate && <button onClick={handleDelete}>X</button>}
-        {onEdit && <button onClick={handleEdit}>Editar</button>}
-      </div>
-      }
-      <img src={mapImg}></img>
-      <h2 className='container_depart--title'>{title}</h2>
-      <p className='container_depart--des'>{description}</p>
-      {type === 'edit' && <div>
-        <button onClick={handleView}>Conoce más...</button>
-      </div>
-      }
+  if(format === 'slide'){
+    className = "depar_contenedor--big"
+  } else {
+    className = "depar_contenedor";
+  }
 
-    </div>*/
-    <div>
-    <div className="depar_contenedor" style={{ backgroundImage: `url("${img}")`}} onClick={handleView} >
+  return (
+
+     <div className={className} style={{ backgroundImage: `url("${img}")`}}  >
       {type === 'edit' && <div>
         {onDelate && <IconButton aria-label="delete" color="primary" onClick={handleDelete}>
         <DeleteIcon />
@@ -65,11 +57,16 @@ const DeparElem: React.FC<DeparElemProps> = ({ id, img, title, description, mapI
         <EditIcon />
       </IconButton>}
       </div>
-}
-      <img src={mapImg}></img>
+  }
+
+  <div className="depar__elem" onClick={handleView}>
+  <img src={mapImg}></img>
+      {format === 'slide' &&<p className="depar_contenedor--text">Quiero explorar</p>}
       <h2 className="depar_contenedor--text">{title}</h2>
+        </div>
+      
     </div>
-    </div>
+
   )
 }
 

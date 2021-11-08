@@ -1,0 +1,12 @@
+.DeparElemForm{
+
+    display: flex;
+    flex-direction: column;
+    padding-left: 58px;
+
+}
+
+.input{
+    margin-bottom: 150px;
+
+}

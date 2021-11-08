@@ -1,0 +1,15 @@
+.Munici__component{
+    height: 702px;
+    width: 330px;
+    background-size: cover;
+    color: white;
+    margin-right: 30px;
+    box-sizing: border-box;
+}
+
+.Munici__place{
+    padding-top: 520px;
+    box-sizing: border-box;
+    padding-left: 18px;
+
+}

@@ -1,23 +1,23 @@
 .DeparElemForm{
-
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
-    padding-left: 58px;
-    width: 40%;
+    padding-top: 24px;
+    padding-left: 390px;
+    padding-right: 390px;
+    box-sizing: border-box;
 
-
+    width: 100%;
 }
 .input{
     margin-top: 50px;
-
 }
-
 
 .DeparElemForm h2{
-
     margin-bottom: 20px;
     color: #09282F;
+    text-align: center;
 }
+
+
 
 

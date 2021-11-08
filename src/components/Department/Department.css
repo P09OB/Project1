@@ -39,6 +39,18 @@
 
 }
 
+.depar_contenedor--big{
+    width: 100%;
+    height: 530px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+    padding-top: 170px;
+}
+
 .depar_contenedor--text{
 
     color: white;
@@ -48,3 +60,8 @@
     font-weight: 600;
     font-size: 36px;
 }
+
+.depar__elem{
+    cursor: pointer;
+
+} 

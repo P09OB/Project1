@@ -1,4 +1,5 @@
 import { MuniciElemObjt } from "./MuniciElemObj";
+import { PlaceElemObj } from "./PlaceElemObj";
 
 export type DeparElemObj = {
     id: number;
@@ -6,7 +7,7 @@ export type DeparElemObj = {
     title: string;
     description: string;
     mapImg: string;
-
     munici: MuniciElemObjt[];
+    place: PlaceElemObj[];
   }
   

@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Project1/static/css/main.4690bb5c.chunk.css",
-    "main.js": "/Project1/static/js/main.544c3293.chunk.js",
-    "main.js.map": "/Project1/static/js/main.544c3293.chunk.js.map",
-    "runtime-main.js": "/Project1/static/js/runtime-main.37fbc7ad.js",
-    "runtime-main.js.map": "/Project1/static/js/runtime-main.37fbc7ad.js.map",
-    "static/js/2.76886db4.chunk.js": "/Project1/static/js/2.76886db4.chunk.js",
-    "static/js/2.76886db4.chunk.js.map": "/Project1/static/js/2.76886db4.chunk.js.map",
-    "static/js/3.e46388f0.chunk.js": "/Project1/static/js/3.e46388f0.chunk.js",
-    "static/js/3.e46388f0.chunk.js.map": "/Project1/static/js/3.e46388f0.chunk.js.map",
+    "main.css": "/Project1/static/css/main.2594108d.chunk.css",
+    "main.js": "/Project1/static/js/main.508acabb.chunk.js",
+    "main.js.map": "/Project1/static/js/main.508acabb.chunk.js.map",
+    "runtime-main.js": "/Project1/static/js/runtime-main.fd61f382.js",
+    "runtime-main.js.map": "/Project1/static/js/runtime-main.fd61f382.js.map",
+    "static/js/2.f104633a.chunk.js": "/Project1/static/js/2.f104633a.chunk.js",
+    "static/js/2.f104633a.chunk.js.map": "/Project1/static/js/2.f104633a.chunk.js.map",
+    "static/js/3.8a4360a5.chunk.js": "/Project1/static/js/3.8a4360a5.chunk.js",
+    "static/js/3.8a4360a5.chunk.js.map": "/Project1/static/js/3.8a4360a5.chunk.js.map",
     "index.html": "/Project1/index.html",
-    "static/css/main.4690bb5c.chunk.css.map": "/Project1/static/css/main.4690bb5c.chunk.css.map",
-    "static/js/2.76886db4.chunk.js.LICENSE.txt": "/Project1/static/js/2.76886db4.chunk.js.LICENSE.txt",
+    "static/css/main.2594108d.chunk.css.map": "/Project1/static/css/main.2594108d.chunk.css.map",
+    "static/js/2.f104633a.chunk.js.LICENSE.txt": "/Project1/static/js/2.f104633a.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Project1/static/media/laguna.c571790c.png",
     "static/media/croquis.ffb02d47.svg": "/Project1/static/media/croquis.ffb02d47.svg",
     "static/media/logo.17d4cc91.svg": "/Project1/static/media/logo.17d4cc91.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.37fbc7ad.js",
-    "static/js/2.76886db4.chunk.js",
-    "static/css/main.4690bb5c.chunk.css",
-    "static/js/main.544c3293.chunk.js"
+    "static/js/runtime-main.fd61f382.js",
+    "static/js/2.f104633a.chunk.js",
+    "static/css/main.2594108d.chunk.css",
+    "static/js/main.508acabb.chunk.js"
   ]
 }

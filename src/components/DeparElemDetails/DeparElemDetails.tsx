@@ -7,17 +7,20 @@ import { MuniciElemObjt } from "../types/MuniciElemObj";
 import DeparElemDetailsMuniciForm from "./DeparElemDetailsMuniciForm";
 import Carousel from 'react-elastic-carousel'
 import "./DeparElemDetails.css"
+import { TagOption } from "../types/TagOption";
 
 interface DeparElemDetailsProps {
     list: DeparElemObj[];
     onCreateMunicipi: (deparElemId: number, newMuniciElem: MuniciElemObjt) => void
+    onDelate: (deparId:number, municiId:number)=> void
+
 }
 
-const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunicipi }) => {
+
+const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunicipi,onDelate }) => {
     const { id: idString } = useParams<{ id: string }>();
     const id = parseFloat(idString);
     const bool = false;
-
 
     const elem = list.find((elem) => {
         return elem.id === id;
@@ -25,11 +28,18 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
     if (!elem) {
         return <Redirect to="/404" />
     }
-    const { title, img, description, mapImg, munici } = elem;
     const handleCreateMuniciElemObj = (newMuniciElem: MuniciElemObjt) => {
         onCreateMunicipi(id, newMuniciElem);
     }
+    
 
+    const { title, img, description, mapImg, munici } = elem;
+
+    const municiCopy = munici
+
+    const handleDelate = (municiId:number) =>{
+        onDelate(id, municiId); 
+    }
 
     return (<>
 
@@ -47,12 +57,9 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
             <div className='container--details'>
             <p className='container--details--text'>{description}</p>
             </div>
-
-            <h1>{munici.length}</h1>
-
             <Carousel isRTL={bool} itemsToShow={2}>
 
-            {munici.map(municielem => {
+            {municiCopy.map(municielem => {
 
                 return <MuniciElem
 
@@ -62,6 +69,8 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
                     weather={municielem.weather}
                     description={municielem.description}
                     img={municielem.img}
+                    onDelate = {handleDelate}
+                    type='edit'
 
                 />
 
@@ -76,7 +85,8 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
 
 
         <DeparElemDetailsMuniciForm
-            onCreate={handleCreateMuniciElemObj}
+            onCreate={handleCreateMuniciElemObj} 
+                       
         />
 
 

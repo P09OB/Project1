@@ -1,0 +1,33 @@
+.Munici__component--big {
+    height: 902px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: blue;
+}
+
+.Munici__component--box {
+    padding-top: 450px;
+    color: white;
+    display: flex;
+}
+
+.Munici__component--title {
+    font-family: Jost;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 97px;
+    line-height: 89.5%;
+}
+
+.Munici__component--des {
+    font-family: Jost;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 30px;
+}
+
+.Munici__component--info {
+    padding-left: 60px;
+}

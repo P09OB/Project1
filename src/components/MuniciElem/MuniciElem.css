@@ -1,15 +1,53 @@
-.Munici__component{
+.Munici__component {
     height: 702px;
     width: 330px;
-    background-size: cover;
     color: white;
-    margin-right: 30px;
+    background-size: contain;
+    padding-right: 24px;
     box-sizing: border-box;
+    background: rgba(9, 40, 47, 0.4);
 }
 
-.Munici__place{
-    padding-top: 520px;
+.Munici__place {
+    margin-top: 400px;
+    padding-left: 14px;
     box-sizing: border-box;
-    padding-left: 18px;
+    height: 30%;
+}
+.Munici--button {
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    border: 1px solid white;
+    width: 60%;
+    height: 45px;
+    border-radius: 24px;
+    cursor: pointer;
+    margin-top: 20px;
 
+    font-family: jost;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+    line-height: 24px;
+}
+
+.Munici--button:hover {
+    background-color: rgba(255, 255, 255, 0.89);
+    color: rgba(9, 40, 47, 0.88);
+}
+
+.Munici--title {
+    margin-bottom: 20px;
+    font-family: jost;
+    font-style: italic;
+    font-size: 33px;
+
+}
+
+.Munici--desc{
+    font-family: jost;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
 }

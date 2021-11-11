@@ -1,5 +1,4 @@
 import React from "react";
-import { DeparElemProps } from "../Department/Department";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { makeStyles } from '@mui/styles';
@@ -40,8 +39,6 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
     const isUrlValid = url.length >= 10;
     const isTitleValid = name.length >= 2;
     const isDescriValid = des.length >= 20;
-
-    //Style
 
     const useStyles = makeStyles({
         root: {

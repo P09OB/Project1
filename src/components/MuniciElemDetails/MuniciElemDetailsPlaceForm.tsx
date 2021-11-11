@@ -10,6 +10,8 @@ export interface DeparElemDetailsPlaceFormProps {
 
 const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({onCreate, id,idDepar}) => {
 
+    const [formSubmitted, setFormSubmitted] = React.useState(false);
+
     const [namePlace, setNamePlace] = React.useState('');
     const handleNamePlaceChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setNamePlace(event.target.value);
@@ -22,9 +24,20 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
     const handleLocationChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
         setLocation(event.target.value);
     }
+    const [img, setImg] = React.useState('')
+    const handleImgChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        setImg(event.target.value);
+    }
+
+    const isUrlValid = img.length >= 10;
+    const isTitleValid = namePlace.length >= 2;
+    const isDescriValid = des.length >= 20;
+    const isLocationValid = location.length >= 10;
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
+        setFormSubmitted(true);
+
         const newMuniciElem: PlaceElemObj = {
             id: Math.random(),
             idDepar: idDepar,
@@ -33,11 +46,22 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
             coordinates: location,
             score: 0,
             descriptionPlace: des,
+            img:img,
         }
 
-        onCreate(newMuniciElem);
+
+        if(isUrlValid&&isTitleValid&&isDescriValid&&isLocationValid){
+            onCreate(newMuniciElem);
+            setNamePlace('');
+            setLocation('');
+            setDes('');
+            setImg('');
+            setFormSubmitted(false)
+
+        }
 
     }
+    
 
     return(<form
         onSubmit={handleSubmit}
@@ -52,7 +76,9 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
             color= 'secondary'
             onChange={handleNamePlaceChange}
             value={namePlace}
-        ></TextField>
+            error={(!isTitleValid && formSubmitted)}
+            helperText={(!isTitleValid && formSubmitted) ? "El titulo contiene menos de 10 caracteres" : ''} >
+        </TextField>
         <TextField
             name="Description"
             label="Descripción"
@@ -62,6 +88,8 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
             color= 'secondary'
             onChange={handleDesChange}
             value={des}
+            error={(!isDescriValid && formSubmitted)}
+            helperText={(!isDescriValid && formSubmitted) ? 'La URL contiene menos de 10 caracteres' : ''}
         ></TextField>
         <TextField
             name="location"
@@ -72,6 +100,20 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
             color= 'secondary'
             onChange={handleLocationChange}
             value={location}
+            error={(formSubmitted && !isLocationValid)}
+            helperText={(formSubmitted && !isLocationValid) ? 'La location contiene menos de 10 caracteres' : ''}
+        ></TextField>
+        <TextField
+            name="img"
+            label="URL Imagen"
+            variant="outlined"
+            className="input"
+            type="text"
+            color= 'secondary'
+            onChange={handleImgChange}
+            value={img}
+            error={(formSubmitted && !isUrlValid)}
+            helperText={(formSubmitted && !isUrlValid) ? 'La URL contiene menos de 10 caracteres' : ''}
 
         ></TextField>
         <Button type="submit" variant="contained">Agregar</Button>

@@ -23,7 +23,6 @@ const PlaceElemDetails: React.FC<PlaceElemDetailsProps> = ({listPlace}) => {
 
 
     return( <>
-
     <p>{name}</p>
     <p>{coordinates}</p>
     <p>{score}</p>

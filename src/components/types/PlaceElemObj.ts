@@ -6,4 +6,5 @@ export type PlaceElemObj = {
     coordinates: string;
     score: number;
     descriptionPlace: string
+    img: string
 }

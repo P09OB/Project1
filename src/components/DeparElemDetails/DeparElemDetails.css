@@ -5,13 +5,13 @@
 
 .container--details{
 
-    width: 50%;
+    width: 70%;
 
 }
 
 .container--details--text{
     padding: 120px;
-    padding-top: 590px;
+    padding-top: 90%;
     box-sizing: border-box;
     color: #09282F;
     font-family: Sansation;
@@ -26,3 +26,4 @@
     margin: 0px;
     text-align: center;
 }
+

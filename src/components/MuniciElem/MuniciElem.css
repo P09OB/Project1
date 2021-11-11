@@ -2,14 +2,14 @@
     height: 702px;
     width: 330px;
     color: white;
-    background-size: contain;
+    background-size: cover;
     padding-right: 24px;
     box-sizing: border-box;
-    background: rgba(9, 40, 47, 0.4);
+    background-color: rgba(9, 40, 47, 0.4);
 }
 
 .Munici__place {
-    margin-top: 400px;
+    padding-top: 400px;
     padding-left: 14px;
     box-sizing: border-box;
     height: 30%;

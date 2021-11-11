@@ -13,11 +13,11 @@ interface DeparElemDetailsProps {
     list: DeparElemObj[];
     onCreateMunicipi: (deparElemId: number, newMuniciElem: MuniciElemObjt) => void
     onDelate: (deparId:number, municiId:number)=> void
-
+    onEdit: (deparId:number, municiId:number, editMuniciElem: MuniciElemObjt) => void
 }
 
 
-const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunicipi,onDelate }) => {
+export const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunicipi,onDelate,onEdit }) => {
     const { id: idString } = useParams<{ id: string }>();
     const id = parseFloat(idString);
     const bool = false;
@@ -32,13 +32,30 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
         onCreateMunicipi(id, newMuniciElem);
     }
     
-
     const { title, img, description, mapImg, munici } = elem;
 
     const municiCopy = munici
 
     const handleDelate = (municiId:number) =>{
         onDelate(id, municiId); 
+    }
+
+    /*const [formMuniciType, setFormMuniciType] = React.useState<'create' | 'edit' | 'none'>('create');
+    const [editIdMunici, setEditIdMunici] = React.useState<number | null>(null);
+    const handleMuniciTypeChange: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+        setFormMuniciType("create")
+    }
+*/
+    const handleBeginEditMunici= (editId: number) => {
+        //setEditIdMunici(editId);
+        //setFormMuniciType("edit");
+        
+      }
+    
+    const handleEditMunici = (municiId:number,editMuniciElem: MuniciElemObjt)=>{
+        onEdit(id, municiId, editMuniciElem); 
+        //setFormMuniciType("none");
+        //setEditIdMunici(null);
     }
 
     return (<>
@@ -70,6 +87,7 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
                     description={municielem.description}
                     img={municielem.img}
                     onDelate = {handleDelate}
+                    onEdit = {handleBeginEditMunici}
                     type='edit'
 
                 />
@@ -86,6 +104,7 @@ const DeparElemDetails: React.FC<DeparElemDetailsProps> = ({ list, onCreateMunic
 
         <DeparElemDetailsMuniciForm
             onCreate={handleCreateMuniciElemObj} 
+            onEdit ={handleEditMunici}
                        
         />
 

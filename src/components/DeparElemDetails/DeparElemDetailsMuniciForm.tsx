@@ -9,8 +9,7 @@ import { TagOption } from "../types/TagOption";
 
 export interface DeparElemDetailsMuniciFormProps {
     onCreate: (newMuniciElem: MuniciElemObjt) => void
-    
-
+    onEdit: (id: number, editMuniciElem: MuniciElemObjt) => void;
 }
 
 const DeparElemDetailsMuniciForm: React.FC<DeparElemDetailsMuniciFormProps> = ({ onCreate}) => {

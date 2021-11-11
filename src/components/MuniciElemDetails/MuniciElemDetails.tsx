@@ -5,6 +5,10 @@ import DeparElemDetailsPlaceForm from "./MuniciElemDetailsPlaceForm";
 import { PlaceElemObj } from "../types/PlaceElemObj";
 import PlaceElem from "../PlaceElem/PlaceElem";
 import Carousel from 'react-elastic-carousel'
+import cloudy from '../../img/cloudy.svg'
+import location from '../../img/location.svg'
+
+
 
 import './MuniciElemDetails.css'
 
@@ -44,14 +48,26 @@ const MuniciElemDetails: React.FC<MuniciElemDetailsProps> = ({ list, listPlace, 
         onDelate(idDepar, placeId);
     }
 
+    const handleEdit = ()=>{
+
+    }
+
     return (
         <>
             <div className='Munici__component--big' style={{ backgroundImage: `url("${img}")` }} >
+                <div className='Munici__component--big'>
                 <div className='Munici__component--box'>
                     <div className='Munici__component--info'>
                         <p className='Munici__component--title'>{title}</p>
                         <p className='Munici__component--des'>{description}</p>
-                        <p>{weather}</p>
+                        <div className='Munici__component--status'>
+                        <img src={cloudy}></img>
+                        <p className='Munici__component--text'>{weather} C°</p>
+                        </div>
+                        <div className='Munici__component--status'>
+                        <img src={location}></img>
+                        <p className='Munici__component--text' >{title}, Colombia</p>
+                        </div>
                     </div>
                     <Carousel isRTL={bool} itemsToShow={3}>
 
@@ -67,12 +83,14 @@ const MuniciElemDetails: React.FC<MuniciElemDetailsProps> = ({ list, listPlace, 
                                 description={elem.descriptionPlace}
                                 format='card'
                                 onDelate={handleDelate}
+                                onEdit = {handleEdit}
                                 type='edit'
                             />
                         })}
 
                     </Carousel>
 
+                </div>
                 </div>
             </div>
 
@@ -82,8 +100,10 @@ const MuniciElemDetails: React.FC<MuniciElemDetailsProps> = ({ list, listPlace, 
                 id={id}
                 idDepar={idDepar}
                 onCreate={handleCreatePlaceElemObj}
-
-            />
+                onEdit={function (id: number, editMuniciElem: PlaceElemObj): void {
+                    throw new Error("Function not implemented.");
+                } } 
+                type={"create"}            />
 
 
 

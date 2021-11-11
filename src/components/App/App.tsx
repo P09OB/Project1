@@ -28,6 +28,7 @@ function App() {
 
   const [formType, setFormType] = React.useState<'create' | 'edit'>('create');
   const [editId, setEditId] = React.useState<number | null>(null);
+  
   const [deparElem, setDeparElem] = React.useState<DeparElemObj[]>([
 
     {
@@ -58,7 +59,16 @@ function App() {
         description: 'Es conocida por su Basílica del Señor de los Milagros de comienzos del siglo XX, un sitio de peregrinación que alberga una imagen sagrada de Cristo que se cree que hace milagros',
         img: 'https://www.las2orillas.co/wp-content/uploads/2017/11/buga_0.jpg',
       }],
-      place: [],
+      place: [{
+        id: 0.33,
+        idDepar:0,
+        idMunici:0.3,
+        name: 'Cristo Rey',
+        coordinates: 'https://www.google.com/maps/dir//Cristo+Rey+Cali,+Via+a+Cristo+Rey,+Cali,+Valle+del+Cauca/@3.4320701,-76.5692172,14z/data=!4m9!4m8!1m0!1m5!1m1!1s0x8e30a42b7a2d7127:0x3c59ada77403b687!2m2!1d-76.5649183!2d3.4358061!3e0',
+        score: 0.04,
+        descriptionPlace: 'es una estatua de 26 metros de altura ubicada en el Cerro los Cristales a 1440 msnm en el corregimiento Los Andes, al occidente de la ciudad de Santiago de Cali, Colombia. ',
+        img: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQjutPqV8UD5MIbamcPKb1UlYS9cxka1ZbeOb6k2PPnGd3liT6VTcN5ME7Sm86-HjTkKrMFVRVT1ol4ELIc0pcSeg',
+      }],
 
     },
     {
@@ -98,6 +108,7 @@ function App() {
     setDeparElem(arrayCopy);
   }
 
+  //ELIMINAR ELEMENTOS
   const handleDelate = (delateId: number) => {
 
     const deparElemCopy = deparElem.filter((elem) => {
@@ -113,8 +124,7 @@ function App() {
     setDeparElem(deparElemCopy);
 
   }
-
-  const handleDeleteMunici = (deparId:number, municiId:number) =>{
+  const handleDelateMunici = (deparId:number, municiId:number) =>{
     const index = deparElem.findIndex((elem)=> elem.id === deparId);
     const newArray = deparElem[index].munici.filter((e)=>{
       if(e.id === municiId){
@@ -132,7 +142,6 @@ function App() {
 
     
   }
-
   const handleDelatePlace = (deparId:number, placeId:number) =>{
     const index = deparElem.findIndex((elem)=> elem.id === deparId);
     const newArray = deparElem[index].place.filter((e)=>{
@@ -154,6 +163,7 @@ function App() {
 
   //const data = getChartData(deparElem);
 
+  //EDITAR DEPARTAMENTO
 
   const handleBeginEdit = (editId: number) => {
     setEditId(editId)
@@ -179,6 +189,27 @@ function App() {
 
     setDeparElem(deparElemCopy);
   }
+
+  //EDITAR MUNICIPIO 
+
+  const handleEditMunici = (deparEditId: number, municiEditId: number, editMuniciElem: MuniciElemObjt) => {
+    const deparElemCopy = deparElem.slice();
+    const editIndex = deparElem.findIndex((elem) => (elem.id === deparEditId))
+    const municiEditIndex = deparElemCopy[editIndex].munici.findIndex((elem) => (elem.id === municiEditId))
+
+    setDeparElem((v)=>{
+      const copy = v;
+      copy[editIndex].munici[municiEditIndex] = editMuniciElem;
+
+      return [...copy]
+    });
+  }
+
+  //EDITAR LUGAR
+
+
+
+  //Crear elementos
 
   const handleCreateMunici = (deparElemId: number, newMuniciElem: MuniciElemObjt) => {
     const deparElemCopy = deparElem.slice();
@@ -226,10 +257,8 @@ function App() {
 
   }
 
-
   let municiArray: MuniciElemObjt[] = [];
   let placeArray: PlaceElemObj[] = [];
-
 
   deparElem.forEach((element) => {
     element.munici.forEach((municiElem) => {
@@ -245,8 +274,6 @@ function App() {
     });
 
   });
-
-
 
 
   return (
@@ -400,7 +427,8 @@ function App() {
             <DeparElemDetails
               list={deparElem}
               onCreateMunicipi={handleCreateMunici} 
-              onDelate={handleDeleteMunici}/>
+              onDelate={handleDelateMunici}
+              onEdit={handleEditMunici}/>
           </Route>
 
           <Route path="/municipio/:id">

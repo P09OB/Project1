@@ -1,14 +1,16 @@
 .Munici__component--big {
     height: 902px;
-    background-size: cover;
     background-repeat: no-repeat;
-    background-color: blue;
+  background-size: cover;
+    background-color: rgba(9, 40, 47, 0.78);;
 }
 
 .Munici__component--box {
-    padding-top: 450px;
+    padding-top: 320px;
     color: white;
     display: flex;
+    background-size: cover;
+
 }
 
 .Munici__component--title {
@@ -26,8 +28,23 @@
     font-size: 18px;
     line-height: 20px;
     margin-top: 30px;
+    width: 70%;
+    box-sizing: border-box;
 }
 
 .Munici__component--info {
     padding-left: 60px;
+}
+
+.Munici__component--status{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+font-size: 21px;
+margin-top: 10px;
+
+}
+
+.Munici__component--text{
+    margin-left: 10px;
 }

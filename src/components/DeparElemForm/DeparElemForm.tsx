@@ -87,7 +87,7 @@ const DeparElemForm: React.FC<DeparElemFormProps> = ({ editId, type, onCreate, o
     return (<form className="DeparElemForm"
         onSubmit={handleSubmit}>
 
-        <h2> {type === 'create' ? 'Agregar' : 'Editar'} Elemento</h2>
+        <h2> {type === 'create' ? 'Agregar' : 'Editar'} Departamento</h2>
 
         {type === 'create' &&
             <TextField

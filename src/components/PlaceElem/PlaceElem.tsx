@@ -21,7 +21,7 @@ export interface PlaceElemProps {
 const PlaceElem: React.FC<PlaceElemProps> = ({ id, name, coordinates, score, img, description, format, onDelate, type, onEdit }) => {
     const history = useHistory();
 
-    const handleView: React.MouseEventHandler<HTMLButtonElement> = () => {
+    const handleView: React.MouseEventHandler<HTMLDivElement> = () => {
         history.push(`/place/${id}`);
 
     }
@@ -45,7 +45,7 @@ const PlaceElem: React.FC<PlaceElemProps> = ({ id, name, coordinates, score, img
 
         <>
             {format === 'card' && <div className="Place__component" style={{ backgroundImage: `url("${img}")` }} >
-                {type === 'edit' && <div>
+                {type === 'edit' && <div className="Place__component--edit">
                     {onDelate && <IconButton aria-label="delete" color="primary" onClick={handleDelete}>
                         <DeleteIcon />
                     </IconButton>}
@@ -54,11 +54,10 @@ const PlaceElem: React.FC<PlaceElemProps> = ({ id, name, coordinates, score, img
                     </IconButton>}
                 </div>}
 
+                <div className="Place__component--info" onClick={handleView}>
                 <h2>{name}</h2>
-                <p>{coordinates}</p>
-                <Rating name="no-value" value={score} readOnly />
-                <Button onClick={handleView}></Button>
-
+            <Rating name="no-value" value={score} readOnly />
+                </div>
             </div>}
 
             {format === 'slide' && <div className="Place__component--slide">

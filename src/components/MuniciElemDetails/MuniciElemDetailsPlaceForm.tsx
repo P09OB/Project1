@@ -1,14 +1,18 @@
 import * as React from "react";
 import { Button, TextField } from "@mui/material";
 import { PlaceElemObj } from "../types/PlaceElemObj";
+import { makeStyles } from "@mui/styles";
 
 export interface DeparElemDetailsPlaceFormProps {
     id:number;
     idDepar:number;
     onCreate: (newMuniciElem: PlaceElemObj) => void
+    onEdit: (id: number, editMuniciElem: PlaceElemObj) => void;
+    type: 'create'
+
 }
 
-const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({onCreate, id,idDepar}) => {
+const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({onCreate, id,idDepar, onEdit, type}) => {
 
     const [formSubmitted, setFormSubmitted] = React.useState(false);
 
@@ -60,12 +64,25 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
 
         }
 
+        const useStyles = makeStyles({
+            root: {
+    
+                margin: '10px 0 0 0',
+            },
+        });
+
+        
+    
+
     }
     
 
-    return(<form
+    return(<form className="DeparElemForm"
         onSubmit={handleSubmit}
         > 
+
+        <h2> {type === 'create' ? 'Agregar' : 'Editar'} un nuevo lugar</h2>
+
 
         <TextField
             name="title"
@@ -126,4 +143,6 @@ const DeparElemDetailsPlaceForm: React.FC<DeparElemDetailsPlaceFormProps> = ({on
 }
 
 export default DeparElemDetailsPlaceForm;
+
+
 

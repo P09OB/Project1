@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/Project1/static/css/main.2594108d.chunk.css",
-    "main.js": "/Project1/static/js/main.508acabb.chunk.js",
-    "main.js.map": "/Project1/static/js/main.508acabb.chunk.js.map",
-    "runtime-main.js": "/Project1/static/js/runtime-main.fd61f382.js",
-    "runtime-main.js.map": "/Project1/static/js/runtime-main.fd61f382.js.map",
-    "static/js/2.f104633a.chunk.js": "/Project1/static/js/2.f104633a.chunk.js",
-    "static/js/2.f104633a.chunk.js.map": "/Project1/static/js/2.f104633a.chunk.js.map",
-    "static/js/3.8a4360a5.chunk.js": "/Project1/static/js/3.8a4360a5.chunk.js",
-    "static/js/3.8a4360a5.chunk.js.map": "/Project1/static/js/3.8a4360a5.chunk.js.map",
+    "main.css": "/Project1/static/css/main.666ead89.chunk.css",
+    "main.js": "/Project1/static/js/main.78b08623.chunk.js",
+    "main.js.map": "/Project1/static/js/main.78b08623.chunk.js.map",
+    "runtime-main.js": "/Project1/static/js/runtime-main.30c0f1fb.js",
+    "runtime-main.js.map": "/Project1/static/js/runtime-main.30c0f1fb.js.map",
+    "static/js/2.88429c4b.chunk.js": "/Project1/static/js/2.88429c4b.chunk.js",
+    "static/js/2.88429c4b.chunk.js.map": "/Project1/static/js/2.88429c4b.chunk.js.map",
+    "static/js/3.2fe2d371.chunk.js": "/Project1/static/js/3.2fe2d371.chunk.js",
+    "static/js/3.2fe2d371.chunk.js.map": "/Project1/static/js/3.2fe2d371.chunk.js.map",
     "index.html": "/Project1/index.html",
-    "static/css/main.2594108d.chunk.css.map": "/Project1/static/css/main.2594108d.chunk.css.map",
-    "static/js/2.f104633a.chunk.js.LICENSE.txt": "/Project1/static/js/2.f104633a.chunk.js.LICENSE.txt",
+    "static/css/main.666ead89.chunk.css.map": "/Project1/static/css/main.666ead89.chunk.css.map",
+    "static/js/2.88429c4b.chunk.js.LICENSE.txt": "/Project1/static/js/2.88429c4b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/Project1/static/media/laguna.c571790c.png",
+    "static/media/cloudy.a62dd05d.svg": "/Project1/static/media/cloudy.a62dd05d.svg",
     "static/media/croquis.ffb02d47.svg": "/Project1/static/media/croquis.ffb02d47.svg",
+    "static/media/location.c6eaaaf0.svg": "/Project1/static/media/location.c6eaaaf0.svg",
     "static/media/logo.17d4cc91.svg": "/Project1/static/media/logo.17d4cc91.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fd61f382.js",
-    "static/js/2.f104633a.chunk.js",
-    "static/css/main.2594108d.chunk.css",
-    "static/js/main.508acabb.chunk.js"
+    "static/js/runtime-main.30c0f1fb.js",
+    "static/js/2.88429c4b.chunk.js",
+    "static/css/main.666ead89.chunk.css",
+    "static/js/main.78b08623.chunk.js"
   ]
 }

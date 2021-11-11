@@ -2,11 +2,11 @@
     height: 902px;
     background-repeat: no-repeat;
   background-size: cover;
-    background-color: rgba(9, 40, 47, 0.78);;
+    background-color: rgba(9, 40, 47, 0.78);
 }
 
 .Munici__component--box {
-    padding-top: 320px;
+    padding-top: 420px;
     color: white;
     display: flex;
     background-size: cover;

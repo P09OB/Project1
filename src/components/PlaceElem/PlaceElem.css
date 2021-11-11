@@ -1,3 +1,4 @@
+
 .Place__component {
     height: 331px;
     width: 239px;
@@ -81,4 +82,81 @@
     text-align: center;
     color: white;
     padding-top: 27%;
+}
+
+.Place__component--bigEdit{
+    font-family: Jost;
+font-style: normal;
+font-weight: 600;
+font-size: 70px;
+line-height: 101px;
+
+
+color: #FFFFFF;
+
+}
+
+.Place__component--boxPlace{
+    display: flex;
+    justify-content:center
+}
+
+.Place__component--location{
+    font-family: jost;
+font-style: normal;
+font-weight: normal;
+font-size: 21px;
+line-height: 24px;
+text-decoration:none;
+
+color: #FFFFFF;
+display:flex;
+justify-content:center;
+flex-direction: column;
+}
+
+.Place__component--location:hover{
+    text-decoration: underline;
+
+}
+
+.Place__component--imagen{
+    width: 40%;
+    transform: rotate(-7.02deg);
+
+}
+
+.Place__component-info{
+
+    display:flex;
+    margin-left: 80px;
+    margin-top: 120px;
+
+
+}
+
+.Place__component--text{
+    width:20%;
+
+font-family: jost;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 212.91%;
+margin-left: 20%;
+}
+
+.Place__component-score{
+    height: 549px;
+    background: #E7E2DC;
+    font-family: Jost;
+font-style: normal;
+font-weight: bold;
+font-size: 107px;
+line-height: 184px;
+display:flex;
+justify-content: center;
+color: #193000;
+
+
 }

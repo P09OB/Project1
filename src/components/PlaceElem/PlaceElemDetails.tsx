@@ -27,18 +27,27 @@ const PlaceElemDetails: React.FC<PlaceElemDetailsProps> = ({listPlace}) => {
     return( <>
     <div className='Munici__component--big' style={{ backgroundImage: `url("${img}")` }}>
 
-    <div className='Munici__component--big'>
-    <div className='Munici__component--bigEdit'
-   ><p>{name}</p>
-    <img src={location}></img>
-        <a href={coordinates}>Cali, Colombia</a>
-</div>
-    </div></div>
+        <div className='Munici__component--big'>
+
+         <div className='Munici__component--bigEdit'>
+            <p className='Place__component--bigEdit'>{name}</p>
+                     <div className='Place__component--boxPlace'>
+            <img src={location}></img>
+            <a className='Place__component--location' href={coordinates}>  {name}, Colombia</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <section className='Place__component-info'>
+    <img className='Place__component--imagen' src={img}></img>
+    <p className='Place__component--text'>{descriptionPlace}</p>
+    </section>
 
     
-    
-    <p>{score}</p>
-    <p>{descriptionPlace}</p>
+
+
+
 
     </>
 
